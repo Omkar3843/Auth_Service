@@ -25,6 +25,20 @@ class UserRepository {
             throw error;
         }
     }
+
+    // In this function we get user detail by attributes beacouse if we get user detail 
+    // Directly than password also shown 
+    async getById(userId){
+        try {
+            const user = await User.findByPk(userId, {
+                attributes: ['email', 'id', ]
+            });
+            return user;
+        } catch (error) {
+            console.log("Sommething went wrong at repository level");
+            throw error;
+        }
+    }
 }
 
 module.exports = UserRepository;
