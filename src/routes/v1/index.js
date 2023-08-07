@@ -9,7 +9,9 @@ const router = express.Router();
 // router.post('/singin', UserController.signIn);
 
 router.post('signup', AuthRequestValidator.validateUserAuth,UserController.create);
-router.post('signin', AuthRequestValidator.validateUserAuth,UserController.signIn);
+// router.post('signin', AuthRequestValidator.validateUserAuth,UserController.signIn);
+
+router.post('signin', AuthRequestValidator.validateUserAuth, UserController.signIn);
 
 router.get(
     '/isAuthenticated',
