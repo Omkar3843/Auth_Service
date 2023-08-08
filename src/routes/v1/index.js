@@ -8,7 +8,11 @@ const router = express.Router();
 // router.post('/singup', UserController.create);
 // router.post('/singin', UserController.signIn);
 
-router.post('signup', AuthRequestValidator.validateUserAuth,UserController.create);
+router.post(
+    'signup',
+     AuthRequestValidator.validateUserAuth,
+     UserController.create
+    );
 // router.post('signin', AuthRequestValidator.validateUserAuth,UserController.signIn);
 
 router.post('signin', AuthRequestValidator.validateUserAuth, UserController.signIn);
@@ -16,6 +20,12 @@ router.post('signin', AuthRequestValidator.validateUserAuth, UserController.sign
 router.get(
     '/isAuthenticated',
     UserController.isAuthenticated
-)
+);
+
+router.get(
+    '/isAdmin',
+    AuthRequestValidator.validateIsAdminRequest,
+    UserController.isAdmin
+);
 
 module.exports = router;

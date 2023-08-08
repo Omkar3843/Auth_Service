@@ -89,6 +89,15 @@ class UserService {
             throw error;
         }
     }
+
+    isAdmin(userId){
+        try {
+            return this.userRepository.isAdmin(userId);
+        } catch (error) {
+            console.log("Sommething went wrong at password comparision");
+            throw error;
+        }
+    }
 }
 
 module.exports = UserService;
